@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+import 'splash_page_content.dart';
+
+class StartupSplashScreenScaffold extends StatelessWidget {
+  const StartupSplashScreenScaffold({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var media = MediaQuery.of(context).size;
+    var colorScheme = Theme.of(context).colorScheme;
+
+    return Scaffold(
+      backgroundColor: colorScheme.surface,
+      body: SafeArea(
+        child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            StartupSplashScreen(media, colorScheme),
+          ],
+        ),
+      ),
+    );
+  }
+}
