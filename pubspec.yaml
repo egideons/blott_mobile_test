@@ -25,6 +25,7 @@ dependencies:
   loadmore_listview:
   flutter_svg:
   flutter_dotenv:
+  permission_handler:
 
 dev_dependencies:
   flutter_test:

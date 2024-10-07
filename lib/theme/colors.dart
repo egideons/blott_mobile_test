@@ -5,10 +5,13 @@ Color kDarkBackgroundColor = Colors.black;
 
 Color kPrimaryColor = const Color(0xFF523AE4);
 Color kDisabledPrimaryColor = const Color(0xFF523AE4).withOpacity(.4);
+Color kTextTitleColor = const Color(0xFF171717);
+Color kTextSubtitleColor = const Color(0xFF737373);
 Color kTextBlackColor = Colors.black;
 Color kTextWhiteColor = Colors.white;
 Color kFormFieldTextColor = const Color(0xFF2D2D2D);
 Color kFormFieldLabelTextColor = kFormFieldTextColor.withOpacity(.5);
+Color kTextFieldBorderColor = const Color(0xFFD4D4D4);
 
 Color kTransparentColor = Colors.transparent;
 Color kGreyColor = Colors.grey.shade500;

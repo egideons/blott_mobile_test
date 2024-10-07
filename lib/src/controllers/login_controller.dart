@@ -26,6 +26,9 @@ class LoginController extends GetxController {
     if (value.isEmpty) {
       formIsValid.value = false;
     } else {
+      if (lastNameEC.text.isEmpty) {
+        formIsValid.value = false;
+      }
       formIsValid.value = true;
     }
   }
@@ -34,15 +37,28 @@ class LoginController extends GetxController {
     if (value.isEmpty) {
       formIsValid.value = false;
     } else {
+      if (firstNameEC.text.isEmpty) {
+        formIsValid.value = false;
+      }
       formIsValid.value = true;
     }
   }
 
+  onFieldSubmitted(String value) {
+    if (formIsValid.value) {
+      login();
+    }
+    return;
+  }
+
   Future<void> login() async {
-    isLoading.value = true;
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      isLoading.value = true;
 
-    await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 3));
 
-    isLoading.value = false;
+      isLoading.value = false;
+    }
   }
 }

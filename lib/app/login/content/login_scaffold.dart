@@ -1,8 +1,7 @@
+import 'package:blott_mobile_test/app/login/content/login_form.dart';
 import 'package:blott_mobile_test/src/constants/consts.dart';
-import 'package:blott_mobile_test/src/utils/reusable/android_textformfield.dart';
 import 'package:blott_mobile_test/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 
 import '../../../src/controllers/login_controller.dart';
@@ -17,6 +16,7 @@ class LoginScaffold extends GetView<LoginController> {
 
     //Mobile or Portrait Screen
     return Scaffold(
+      appBar: AppBar(toolbarHeight: 0),
       floatingActionButton: Obx(() {
         return FloatingActionButton(
           onPressed: controller.formIsValid.value ? controller.login : null,
@@ -39,74 +39,30 @@ class LoginScaffold extends GetView<LoginController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "${dotenv.env["APIKEY"]}",
-                // "Login to your account",
+                "Your legal name",
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+                maxLines: 10,
                 style: defaultTextStyle(
-                  fontSize: 20,
+                  fontSize: 30,
                   fontWeight: FontWeight.w800,
-                  color: colorScheme.primary,
+                  color: kTextTitleColor,
                 ),
               ),
+              kSizedBox,
               Text(
-                "Welcome back! Please enter your registered email address to continue.",
-                maxLines: 4,
+                "We need to know a bit about you so that we can create your account.",
+                maxLines: 10,
                 textAlign: TextAlign.start,
                 overflow: TextOverflow.ellipsis,
                 style: defaultTextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w300,
-                  color: colorScheme.primary,
+                  color: kTextSubtitleColor,
                 ),
               ),
               kSizedBox,
-              Form(
-                key: controller.formKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Email address",
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.ellipsis,
-                      style: defaultTextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300,
-                        color: colorScheme.primary,
-                      ),
-                    ),
-                    AndroidTextFormField(
-                      controller: controller.firstNameEC,
-                      hintText: "Enter email",
-                      focusNode: controller.firstNameFN,
-                      textInputAction: TextInputAction.next,
-                      textCapitalization: TextCapitalization.none,
-                      keyboardType: TextInputType.emailAddress,
-                      onChanged: controller.firstNameOnChanged,
-                      validator: (value) {
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 4),
-
-                    SizedBox(height: media.height * .36),
-                    // GetBuilder<LoginController>(
-                    //   init: LoginController(),
-                    //   builder: (controller) {
-                    //     return MyElevatedButton(
-                    //       title: "Continue",
-                    //       disable: !controller.formIsValid.value,
-                    //       isLoading: controller.isLoading.value,
-                    //       onPressed: controller.login,
-                    //     );
-                    //   },
-                    // ),
-                  ],
-                ),
-              ),
+              loginForm(colorScheme, media, controller),
             ],
           ),
         ),
