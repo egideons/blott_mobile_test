@@ -18,13 +18,13 @@ dependencies:
   shared_preferences:
   intl:
   loading_animation_widget:
-  lottie:
   custom_navigation_bar:
   readmore:
   url_launcher:
   skeletonizer:
   loadmore_listview:
-  google_fonts:
+  flutter_svg:
+  flutter_dotenv:
 
 dev_dependencies:
   flutter_test:
@@ -34,16 +34,16 @@ dev_dependencies:
   flutter_native_splash:
 
 flutter_native_splash:
-  image: assets/images/png/app_icon_dark_bg.png
+  image: assets/images/png/app_icon_light.png
   color: "#f9f9f9"
-  image_dark: assets/images/png/app_icon.png
+  image_dark: assets/images/png/app_icon_light.png
   color_dark: "#000000"
 
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: "ic_launcher"
   remove_alpha_ios: true
   ios: true
-  image_path: "assets/images/png/app_icon_dark_bg.png"
+  image_path: "assets/images/png/app_icon_light.png"
   min_sdk_android: 21 # android min sdk min:16, default 21
 
 # For information on the generic Dart part of this file, see the
@@ -55,11 +55,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/png
-    - assets/images/svg
-    - assets/icons/svg
-    - assets/icons/png
-  #   - images/a_dot_ham.jpeg
+    - .env
+    - assets/images/png/
+    - assets/images/svg/
+    - assets/icons/svg/
+    - assets/icons/png/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -83,14 +83,6 @@ flutter:
           weight: 700
         - asset: fonts/Roboto/Roboto-BoldItalic.ttf
           weight: 700
-        - asset: fonts/Roboto/Roboto-ExtraBold.ttf
-          weight: 800
-        - asset: fonts/Roboto/Roboto-ExtraBoldItalic.ttf
-          weight: 800
-        - asset: fonts/Roboto/Roboto-ExtraLight.ttf
-          weight: 300
-        - asset: fonts/Roboto/Roboto-ExtraLightItalic.ttf
-          weight: 300
         - asset: fonts/Roboto/Roboto-Italic.ttf
           weight: 500
         - asset: fonts/Roboto/Roboto-Light.ttf
@@ -100,8 +92,6 @@ flutter:
         - asset: fonts/Roboto/Roboto-Medium.ttf
         - asset: fonts/Roboto/Roboto-MediumItalic.ttf
         - asset: fonts/Roboto/Roboto-Regular.ttf
-        - asset: fonts/Roboto/Roboto-SemiBold.ttf
-        - asset: fonts/Roboto/Roboto-SemiBoldItalic.ttf
         - asset: fonts/Roboto/Roboto-Thin.ttf
         - asset: fonts/Roboto/Roboto-ThinItalic.ttf
 

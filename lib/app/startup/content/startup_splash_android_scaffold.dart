@@ -1,6 +1,7 @@
+import 'package:blott_mobile_test/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-import 'splash_page_content.dart';
+import 'startup_splash_screen_content.dart';
 
 class StartupSplashScreenScaffold extends StatelessWidget {
   const StartupSplashScreenScaffold({super.key});
@@ -11,14 +12,9 @@ class StartupSplashScreenScaffold extends StatelessWidget {
     var colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
-      backgroundColor: colorScheme.surface,
+      backgroundColor: kDarkBackgroundColor,
       body: SafeArea(
-        child: ListView(
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            StartupSplashScreen(media, colorScheme),
-          ],
-        ),
+        child: startupSplashScreenContent(media, colorScheme),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -12,10 +13,13 @@ import 'theme/colors.dart';
 late SharedPreferences prefs;
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(statusBarColor: kTransparentColor),
   );
   WidgetsFlutterBinding.ensureInitialized();
+  // Lock device orientation to portrait up
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   prefs = await SharedPreferences.getInstance();
 
