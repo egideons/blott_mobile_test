@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:blott_mobile_test/app/home/screen/home.dart';
 import 'package:blott_mobile_test/app/login/screen/login.dart';
+import 'package:blott_mobile_test/src/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,37 +20,30 @@ class AuthController extends GetxController {
   }
 
   Future<void> loadApp() async {
-    await Get.offAll(
-      () => const Login(),
-      routeName: "/intro",
-      fullscreenDialog: true,
-      curve: Curves.easeInOut,
-      predicate: (routes) => false,
-      popGesture: false,
-      transition: Get.defaultTransition,
-    );
+    final UserController userController = UserController.instance;
 
-    // var isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
+    String firstName = userController.getFirstName() ?? "";
 
-    // if (isLoggedIn) {
-    // await Get.offAll(
-    //   () => const BottomNav(),
-    //   routeName: "/explore",
-    //   fullscreenDialog: true,
-    //   curve: Curves.easeInOut,
-    //   predicate: (routes) => false,
-    //   popGesture: false,
-    //   transition: Get.defaultTransition,
-    // );
-    // }
-    // await Get.offAll(
-    //   () => const Intro(),
-    //   routeName: "/intro",
-    //   fullscreenDialog: true,
-    //   curve: Curves.easeInOut,
-    //   predicate: (routes) => false,
-    //   popGesture: false,
-    //   transition: Get.defaultTransition,
-    // );
+    if (firstName.isEmpty) {
+      await Get.offAll(
+        () => const Login(),
+        routeName: "/intro",
+        fullscreenDialog: true,
+        curve: Curves.easeInOut,
+        predicate: (routes) => false,
+        popGesture: false,
+        transition: Get.defaultTransition,
+      );
+    } else {
+      await Get.offAll(
+        () => const Home(),
+        routeName: "/home",
+        fullscreenDialog: true,
+        curve: Curves.easeInOut,
+        predicate: (routes) => false,
+        popGesture: false,
+        transition: Get.defaultTransition,
+      );
+    }
   }
 }

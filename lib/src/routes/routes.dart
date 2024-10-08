@@ -1,4 +1,5 @@
 import 'package:blott_mobile_test/app/enable_notif/screen/enable_notif.dart';
+import 'package:blott_mobile_test/app/home/screen/home.dart';
 import 'package:blott_mobile_test/app/login/screen/login.dart';
 import 'package:blott_mobile_test/app/startup/screen/startup_splash_screen.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,6 @@ class Routes {
     GetPage(name: enableNotifications, page: () => const EnableNotif()),
 
     //Main App
-    // GetPage(name: home, page: () => const Home()),
+    GetPage(name: home, page: () => const Home()),
   ];
 }

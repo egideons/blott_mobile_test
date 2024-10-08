@@ -18,14 +18,15 @@ dependencies:
   shared_preferences:
   intl:
   loading_animation_widget:
-  custom_navigation_bar:
-  readmore:
   url_launcher:
   skeletonizer:
   loadmore_listview:
   flutter_svg:
   flutter_dotenv:
   permission_handler:
+  hive:
+  hive_flutter:
+  connectivity_plus:
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +34,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_launcher_icons:
   flutter_native_splash:
+  hive_generator: ^1.1.0
+  build_runner: ^2.0.0
 
 flutter_native_splash:
   image: assets/images/png/app_icon_light.png

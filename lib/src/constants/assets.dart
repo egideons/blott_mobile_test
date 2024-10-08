@@ -8,7 +8,8 @@ class Assets {
   //Icons
   static const notificationSvg = "assets/icons/svg/notification.svg";
 
-//Placeholder Image
+//Images
+  static const homeImage1 = "assets/images/png/home_img_1.png";
   static const placeholderImage = "assets/images/png/placeholder_image.png";
   static const userPlaceholderImage =
       "https://img.freepik.com/free-psd/3d-icon-social-media-app_23-2150049569.jpg";

@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:blott_mobile_test/src/constants/consts.dart';
 import 'package:blott_mobile_test/src/controllers/api_processor_controller.dart';
-import 'package:blott_mobile_test/src/routes/routes.dart';
+import 'package:blott_mobile_test/src/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+
+import '../../app/enable_notif/screen/enable_notif.dart';
 
 class LoginController extends GetxController {
   static LoginController get instance {
@@ -11,6 +16,8 @@ class LoginController extends GetxController {
 
   //=========== Variables =============\\
   var formKey = GlobalKey<FormState>();
+  final userBox = Hive.box('userBox');
+  var userController = UserController.instance;
 
   //=========== Booleans =============\\
   var formIsValid = false.obs;
@@ -83,9 +90,25 @@ class LoginController extends GetxController {
       isLoading.value = true;
       update();
 
-      await Future.delayed(const Duration(milliseconds: 500));
-      ApiProcessorController.successSnack("Login successful");
-      Get.toNamed(Routes.enableNotifications, preventDuplicates: true);
+      //Store user details to hive storage (local storage)
+      userController.storeUserDetails(firstNameEC.text, lastNameEC.text);
+
+      await Future.delayed(const Duration(milliseconds: 800));
+      String firstName = userController.getFirstName() ?? "";
+
+      if (firstName.isNotEmpty) {
+        log("User's first name: $firstName");
+        ApiProcessorController.successSnack("Login successful");
+        await Get.offAll(
+          () => const EnableNotif(),
+          routeName: "/enable-notifications",
+          fullscreenDialog: true,
+          curve: Curves.easeInOut,
+          predicate: (routes) => false,
+          popGesture: false,
+          transition: Get.defaultTransition,
+        );
+      }
 
       isLoading.value = false;
       update();
