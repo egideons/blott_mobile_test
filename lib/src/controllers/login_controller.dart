@@ -1,3 +1,6 @@
+import 'package:blott_mobile_test/src/constants/consts.dart';
+import 'package:blott_mobile_test/src/controllers/api_processor_controller.dart';
+import 'package:blott_mobile_test/src/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,8 +31,9 @@ class LoginController extends GetxController {
     } else {
       if (lastNameEC.text.isEmpty) {
         formIsValid.value = false;
+      } else {
+        formIsValid.value = true;
       }
-      formIsValid.value = true;
     }
   }
 
@@ -39,8 +43,9 @@ class LoginController extends GetxController {
     } else {
       if (firstNameEC.text.isEmpty) {
         formIsValid.value = false;
+      } else {
+        formIsValid.value = true;
       }
-      formIsValid.value = true;
     }
   }
 
@@ -54,11 +59,36 @@ class LoginController extends GetxController {
   Future<void> login() async {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-      isLoading.value = true;
 
-      await Future.delayed(const Duration(seconds: 3));
+      var nameRegExp = RegExp(namePattern);
+
+      if (firstNameEC.text.isEmpty) {
+        ApiProcessorController.errorSnack("Please enter your first name");
+        return;
+      } else if (lastNameEC.text.isEmpty) {
+        ApiProcessorController.errorSnack("Please enter your last name");
+        return;
+      } else if (!nameRegExp.hasMatch(firstNameEC.text)) {
+        ApiProcessorController.errorSnack(
+          "First name must be at least 3 characters",
+        );
+        return;
+      } else if (!nameRegExp.hasMatch(lastNameEC.text)) {
+        ApiProcessorController.errorSnack(
+          "Last name must be at least 3 characters",
+        );
+        return;
+      }
+
+      isLoading.value = true;
+      update();
+
+      await Future.delayed(const Duration(milliseconds: 500));
+      ApiProcessorController.successSnack("Login successful");
+      Get.toNamed(Routes.enableNotifications, preventDuplicates: true);
 
       isLoading.value = false;
+      update();
     }
   }
 }

@@ -1,4 +1,4 @@
-# Mobile Design Task
+# Mobile Test Assessment
 
 A mobile application test project for [Blott Studio](https://www.blott.studio/)
 
@@ -16,7 +16,7 @@ Built with [Flutter](https://flutter.dev)
 
 ## How to download the APK
 
-- Click on `Blott Mobile Test` under [Releases](https://github.com/egideons/blott_mobile_test/releases)
+- Click on `Blott Test App` under [Releases](https://github.com/egideons/blott_mobile_test/releases)
 - You will see `app-release.apk` under Assets
 - Click on it to download the app
 

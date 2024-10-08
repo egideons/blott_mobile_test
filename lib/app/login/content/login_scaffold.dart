@@ -14,9 +14,9 @@ class LoginScaffold extends GetView<LoginController> {
     var media = MediaQuery.of(context).size;
     var colorScheme = Theme.of(context).colorScheme;
 
-    //Mobile or Portrait Screen
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0),
+      backgroundColor: kLightBackgroundColor,
+      appBar: AppBar(toolbarHeight: 0, backgroundColor: kLightBackgroundColor),
       floatingActionButton: Obx(() {
         return FloatingActionButton(
           onPressed: controller.formIsValid.value ? controller.login : null,
@@ -28,7 +28,9 @@ class LoginScaffold extends GetView<LoginController> {
           shape: const CircleBorder(),
           disabledElevation: 0,
           elevation: 20,
-          child: const Icon(Icons.chevron_right),
+          child: controller.isLoading.isTrue
+              ? CircularProgressIndicator(color: kLightBackgroundColor)
+              : const Icon(Icons.chevron_right, size: 34),
         );
       }),
       body: SafeArea(
@@ -45,7 +47,7 @@ class LoginScaffold extends GetView<LoginController> {
                 maxLines: 10,
                 style: defaultTextStyle(
                   fontSize: 30,
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w700,
                   color: kTextTitleColor,
                 ),
               ),
@@ -57,7 +59,7 @@ class LoginScaffold extends GetView<LoginController> {
                 overflow: TextOverflow.ellipsis,
                 style: defaultTextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
                   color: kTextSubtitleColor,
                 ),
               ),

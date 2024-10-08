@@ -60,19 +60,7 @@ loginForm(
           },
         ),
         const SizedBox(height: 4),
-
         SizedBox(height: media.height * .36),
-        // GetBuilder<LoginController>(
-        //   init: LoginController(),
-        //   builder: (controller) {
-        //     return MyElevatedButton(
-        //       title: "Continue",
-        //       disable: !controller.formIsValid.value,
-        //       isLoading: controller.isLoading.value,
-        //       onPressed: controller.login,
-        //     );
-        //   },
-        // ),
       ],
     ),
   );

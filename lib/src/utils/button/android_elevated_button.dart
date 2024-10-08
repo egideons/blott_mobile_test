@@ -51,7 +51,6 @@ class AndroidElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
-    var colorScheme = Theme.of(context).colorScheme;
 
     return ElevatedButton(
       onPressed: disable
@@ -61,16 +60,16 @@ class AndroidElevatedButton extends StatelessWidget {
               : onPressed,
       onLongPress: null,
       style: ElevatedButton.styleFrom(
-        disabledBackgroundColor: disabledBackgroundColor ??
-            colorScheme.inversePrimary.withOpacity(.6),
-        backgroundColor: buttonColor ?? colorScheme.secondary,
+        disabledBackgroundColor:
+            disabledBackgroundColor ?? kDisabledPrimaryColor,
+        backgroundColor: buttonColor ?? kPrimaryColor,
         elevation: buttonElevation ?? 0,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 10)),
-        minimumSize: Size(media.width, 40),
+            borderRadius: BorderRadius.circular(borderRadius ?? 24)),
+        minimumSize: Size(media.width, 50),
       ),
       child: isLoading
-          ? CupertinoActivityIndicator(color: colorScheme.surface)
+          ? CupertinoActivityIndicator(color: kLightBackgroundColor)
           : isRowVisible == true
               ? isSwitched == true
                   ? Row(

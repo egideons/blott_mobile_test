@@ -12,6 +12,7 @@ Color kTextWhiteColor = Colors.white;
 Color kFormFieldTextColor = const Color(0xFF2D2D2D);
 Color kFormFieldLabelTextColor = kFormFieldTextColor.withOpacity(.5);
 Color kTextFieldBorderColor = const Color(0xFFD4D4D4);
+Color kHomeTopBackgroundColor = const Color(0xFF05021B);
 
 Color kTransparentColor = Colors.transparent;
 Color kGreyColor = Colors.grey.shade500;
