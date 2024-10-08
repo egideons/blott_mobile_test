@@ -16,19 +16,10 @@ Built with [Flutter](https://flutter.dev)
 
 ## How to download the APK
 
-- Click on `Blott Test App` under [Releases](https://github.com/egideons/blott_mobile_test/releases)
+- Click on `Blott Mobile Test App` under [Releases](https://github.com/egideons/blott_mobile_test/releases)
 - You will see `app-release.apk` under Assets
 - Click on it to download the app
 
 or
 
-- [Click here to download from Google Drive](https://drive.google.com/file/d/1U7FZDKb2EPT8kO0O8arxuecicEeJsJKX/view?usp=drivesdk)
-
-## App Demo
-
-<!--
-[![Demo video](https://raw.githubusercontent.com/egideons/busha_mobile_design_task/main/assets/icons/png/dark_app_icon.png)](https://raw.githubusercontent.com/egideons/busha_mobile_design_task/main/demo/app_demo.mp4) -->
-
-## Watch on Youtube
-
-<!-- [![Watch the video](https://raw.githubusercontent.com/egideons/busha_mobile_design_task/main/assets/icons/png/dark_app_icon.png)](https://youtu.be/v2B9cFBR64g?si=QPm1fOU5XFFLEHt5) -->
+- [Click here to download from Google Drive](https://drive.google.com/drive/folders/1A6GaHuwQX-pQD6IbKKz_9mgpsLTwDBA-?usp=sharing)
